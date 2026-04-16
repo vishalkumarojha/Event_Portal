@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { login as loginApi } from "../api";
 
 const DashboardLogin: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/dashboard");
+    setErrorMsg("");
+    try {
+      const response = await loginApi({ email, password });
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+      navigate("/dashboard");
+    } catch (err: any) {
+      setErrorMsg(err.response?.data?.error || "Login failed. Please try again.");
+    }
   };
 
   return (
@@ -56,6 +67,11 @@ const DashboardLogin: React.FC = () => {
             </header>
 
             <form className="space-y-8" onSubmit={handleSubmit}>
+              {errorMsg && (
+                <div className="p-4 bg-error/10 border border-error/20 rounded-xl text-error text-sm font-bold animate-shake">
+                  {errorMsg}
+                </div>
+              )}
               <div className="space-y-6">
                 {/* Email */}
                 <div className="space-y-2">
