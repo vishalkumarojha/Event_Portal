@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#464555",
+                    "on-background": "#191c1d",
+                    "surface-container": "#edeeef",
+                    "tertiary": "#7e3000",
+                    "surface-dim": "#d9dadb",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#a44100",
+                    "on-primary-fixed": "#0f0069",
+                    "inverse-surface": "#2e3132",
+                    "surface-container-high": "#e7e8e9",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#454386",
+                    "surface-tint": "#4d44e3",
+                    "outline": "#777587",
+                    "on-tertiary-container": "#ffd2be",
+                    "tertiary-fixed": "#ffdbcc",
+                    "secondary-fixed-dim": "#c3c0ff",
+                    "primary-fixed": "#e2dfff",
+                    "on-secondary-fixed": "#140f54",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#c3c0ff",
+                    "surface-variant": "#e1e3e4",
+                    "secondary-fixed": "#e2dfff",
+                    "background": "#f8f9fa",
+                    "primary": "#3525cd",
+                    "surface-bright": "#f8f9fa",
+                    "surface-container-low": "#f3f4f5",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "primary-container": "#4f46e5",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c7c4d8",
+                    "on-surface": "#191c1d",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-tertiary-fixed": "#351000",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb695",
+                    "secondary": "#58579b",
+                    "on-error": "#ffffff",
+                    "surface": "#f8f9fa",
+                    "on-primary-container": "#dad7ff",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "on-tertiary-fixed-variant": "#7b2f00",
+                    "on-secondary-fixed-variant": "#413f82",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-container": "#b6b4ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-header { backdrop-filter: blur(20px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar (NavigationDrawer) -->
+<aside class="h-full w-72 fixed left-0 top-0 border-r-0 bg-slate-50 dark:bg-slate-950 flex flex-col p-6 h-screen border-r border-slate-100 dark:border-slate-800 z-40">
+<div class="mb-8">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white tracking-tighter">Admin Console</h2>
+<p class="text-sm text-slate-500 font-medium">Student Activities Board</p>
+</div>
+<nav class="flex-1 space-y-2 overflow-y-auto no-scrollbar">
+<!-- Dashboard -->
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 font-['Manrope'] font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Events -->
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 font-['Manrope'] font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span>Events</span>
+</a>
+<!-- Registrations (Active) -->
+<a class="bg-white dark:bg-slate-900 text-indigo-600 shadow-sm rounded-xl py-3 px-4 flex items-center gap-3 font-['Manrope'] font-semibold transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>Registrations</span>
+</a>
+<!-- Analytics -->
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 font-['Manrope'] font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<!-- Settings -->
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 font-['Manrope'] font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-6">
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-full font-headline font-bold text-sm shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">add</span>
+                Create New Event
+            </button>
+<div class="pt-6 border-t border-slate-200/60">
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 font-['Manrope'] font-semibold hover:bg-indigo-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Help Center</span>
+</a>
+<div class="mt-4 flex items-center gap-3 px-4">
+<img alt="Club Administrator Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a professional college administrator in a modern office with natural light and a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAiCg7pjqlnsSYfKW7BBsKHAU9KKkpi_Fm6mSj51PX_JNXiXX-R3riR4ELjiXPcoXRuA0tbCCznAGM-DYuZjfw8_FxCYju84XgfVVQSKtXr2BRfINzrGPxtFurDoW6iZXbdLN0Tu6judhraE7JIpcKuYxYtn5ss91RdldwmVtgCnAd2twa7cRpya9O3ZWtpYm2HrmXKRgGKtZC_N6s3x0bJx1RwNXE1dKJYpzpV7JmiMxRLOpJPHDAmgiqq9ADbvH4fBeHMn7Pag"/>
+<div>
+<p class="text-xs font-bold text-on-surface">Alex Rivera</p>
+<p class="text-[10px] text-on-surface-variant">Lead Coordinator</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-72 min-h-screen">
+<!-- Header Section (The Curated Campus Aesthetic) -->
+<header class="sticky top-0 z-30 px-10 pt-10 pb-6 bg-background/80 backdrop-blur-xl">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-xs font-label font-bold text-primary mb-3 tracking-widest uppercase">
+<span>Events</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface-variant">Spring Gala 2024</span>
+</nav>
+<h1 class="text-5xl font-headline font-extrabold text-on-surface tracking-tighter leading-none">
+                        Club Registrations
+                    </h1>
+<p class="mt-4 text-on-surface-variant font-body max-w-xl text-lg">
+                        Managing 248 attendees for the <span class="text-on-surface font-semibold">Annual Spring Arts Gala</span>. Monitor status, handle ticket tiers, and communicate with participants.
+                    </p>
+</div>
+<div class="flex items-center gap-3 mb-1">
+<button class="px-6 py-3 bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-headline font-bold rounded-full transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">mail</span>
+                        Send Email
+                    </button>
+<button class="px-6 py-3 bg-on-surface text-surface font-headline font-bold rounded-full transition-all flex items-center gap-2 hover:opacity-90">
+<span class="material-symbols-outlined">download</span>
+                        Download List (CSV)
+                    </button>
+</div>
+</div>
+</header>
+<!-- Search and Filter Bar -->
+<section class="px-10 py-6 max-w-7xl mx-auto">
+<div class="bg-surface-container-low p-2 rounded-full flex flex-col md:flex-row items-center gap-2">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 pl-12 pr-4 py-3 text-on-surface placeholder:text-outline font-medium" placeholder="Search by name, email, or ID..." type="text"/>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant hidden md:block"></div>
+<div class="flex items-center gap-2 px-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-5 py-2.5 bg-surface-container-lowest rounded-full text-sm font-headline font-bold text-on-surface flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+                        Status: All
+                    </button>
+<button class="flex-1 md:flex-none px-5 py-2.5 bg-surface-container-lowest rounded-full text-sm font-headline font-bold text-on-surface flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-lg">confirmation_number</span>
+                        Tier: All
+                    </button>
+</div>
+</div>
+</section>
+<!-- Main Registration Table (High-End Card Pattern) -->
+<section class="px-10 pb-20 max-w-7xl mx-auto">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_24px_rgba(70,69,85,0.06)]">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-8 py-5 text-[11px] font-label font-extrabold text-outline tracking-[0.1em] uppercase">Participant</th>
+<th class="px-6 py-5 text-[11px] font-label font-extrabold text-outline tracking-[0.1em] uppercase">Student ID</th>
+<th class="px-6 py-5 text-[11px] font-label font-extrabold text-outline tracking-[0.1em] uppercase">Ticket Type</th>
+<th class="px-6 py-5 text-[11px] font-label font-extrabold text-outline tracking-[0.1em] uppercase">Status</th>
+<th class="px-8 py-5 text-right text-[11px] font-label font-extrabold text-outline tracking-[0.1em] uppercase">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 -->
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">
+                                            JS
+                                        </div>
+<div>
+<p class="font-headline font-bold text-on-surface">Julianne Smith</p>
+<p class="text-xs text-on-surface-variant">j.smith@university.edu</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-headline font-medium text-on-surface-variant">#2024-9981</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[11px] font-bold rounded-full uppercase tracking-wider">VIP Access</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-green-600 font-headline font-bold text-sm">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+                                        Confirmed
+                                    </div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="close up headshot of a student smiling, outdoor natural lighting, high quality photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7eOsjoPDONfned575l5kapmTYB2Q2NyS094BSmJoAO3EE9c4MfF9EE4VYOIZKG5okJxsOzsyMdSGDSAoEJM1hMVW6cQmgddZ-0YX5enpUMjyT0DhfdW4TY-Ph_CtFB9DnvLCQowgtBLQ8gYREtvYg84ObWZVnmT14nVD5t7kKfB-VvJhy4A0hd0uauNWMuBakkrvwNGlXJB4bzegaBr2-Y-cztWKzCLpGnK0_uD8eRQ1oRN3raPLGvvApDrTtbeUaWIUVWLiUJA"/>
+<div>
+<p class="font-headline font-bold text-on-surface">Marcus Chen</p>
+<p class="text-xs text-on-surface-variant">m.chen@university.edu</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-headline font-medium text-on-surface-variant">#2024-8823</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-bold rounded-full uppercase tracking-wider">General Admission</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-amber-600 font-headline font-bold text-sm">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                                        Pending
+                                    </div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary font-bold">
+                                            AL
+                                        </div>
+<div>
+<p class="font-headline font-bold text-on-surface">Amina Lopez</p>
+<p class="text-xs text-on-surface-variant">a.lopez@university.edu</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-headline font-medium text-on-surface-variant">#2024-1245</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-primary-fixed text-primary text-[11px] font-bold rounded-full uppercase tracking-wider">Early Bird</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-green-600 font-headline font-bold text-sm">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+                                        Confirmed
+                                    </div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a young woman with creative styling, bright studio lighting, soft pastel background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs6vHRP8Bfqa2t3UW1dGzb0O952cTaJhw_vvEc50QpoeziZCPfQ0GVYfawZDikz570boixsAFyTTpLJffN2FUYIvmxxIy0frxH0xj5GTXpRfzd3TYFoP43jWzwwMdsI69UTCDeqRNosuWolrdLAILlvfrvK19YS--TOcN_t9A8uG57wk4iK9pC-eyU5geBpQM9iMMkU_yu7S5EjvURHKf1Z1DBuuPJv0FCpSzE58MbkDxNAIkH2S2lTB3bWqLl4aNkXMnYu0lzkQ"/>
+<div>
+<p class="font-headline font-bold text-on-surface">Sarah Jenkins</p>
+<p class="text-xs text-on-surface-variant">s.jenkins@university.edu</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-headline font-medium text-on-surface-variant">#2024-5512</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-[11px] font-bold rounded-full uppercase tracking-wider">General Admission</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-error font-headline font-bold text-sm">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                        Cancelled
+                                    </div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary font-bold">
+                                            DP
+                                        </div>
+<div>
+<p class="font-headline font-bold text-on-surface">David Park</p>
+<p class="text-xs text-on-surface-variant">d.park@university.edu</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-headline font-medium text-on-surface-variant">#2024-3390</span>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[11px] font-bold rounded-full uppercase tracking-wider">VIP Access</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-green-600 font-headline font-bold text-sm">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+                                        Confirmed
+                                    </div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Footer -->
+<div class="px-8 py-6 flex items-center justify-between border-t border-surface-container bg-surface-container-low/30">
+<p class="text-sm font-medium text-on-surface-variant">
+                        Showing <span class="text-on-surface font-bold">1-10</span> of <span class="text-on-surface font-bold">248</span> registrants
+                    </p>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-on-surface text-surface font-headline font-bold shadow-md">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container text-on-surface transition-colors font-bold">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container text-on-surface transition-colors font-bold">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Contextual Insight Cards (Bento Style) -->
+<section class="px-10 pb-20 max-w-7xl mx-auto">
+<h3 class="text-2xl font-headline font-extrabold text-on-surface mb-8 tracking-tight">Registration Insights</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Stat Card 1 -->
+<div class="bg-primary-container p-8 rounded-xl text-white relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-xs font-label font-extrabold tracking-widest opacity-80 mb-4 uppercase">Total Revenue</p>
+<h4 class="text-4xl font-headline font-black">$12,450.00</h4>
+<div class="mt-6 flex items-center gap-2 bg-white/20 w-fit px-3 py-1 rounded-full text-xs font-bold backdrop-blur-md">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                            +18% from last month
+                        </div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-8 -right-8 text-[160px] opacity-10 group-hover:scale-110 transition-transform">payments</span>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_24px_rgba(70,69,85,0.06)] flex flex-col justify-between">
+<div>
+<p class="text-xs font-label font-extrabold text-outline tracking-widest mb-4 uppercase">Ticket Distribution</p>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-xs font-bold mb-1">
+<span class="text-on-surface">VIP Access</span>
+<span class="text-primary">45%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[45%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-1">
+<span class="text-on-surface">General Admission</span>
+<span class="text-secondary">55%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[55%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-slate-900 p-8 rounded-xl text-white flex flex-col justify-between">
+<div>
+<p class="text-xs font-label font-extrabold tracking-widest opacity-60 mb-2 uppercase">Recent Activity</p>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+<p class="text-xs text-indigo-100/80">New registration: <span class="font-bold text-white">David P.</span></p>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+<p class="text-xs text-indigo-100/80">Refund issued: <span class="font-bold text-white">#9921-X</span></p>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+<p class="text-xs text-indigo-100/80">Check-in active: <span class="font-bold text-white">Hall A</span></p>
+</div>
+</div>
+</div>
+<button class="mt-4 text-xs font-bold text-indigo-300 hover:text-white flex items-center gap-1 transition-colors">
+                        View Audit Log
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

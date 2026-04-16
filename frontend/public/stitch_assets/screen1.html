@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Academic Atelier | Discover Events</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#464555",
+                        "on-background": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "tertiary": "#7e3000",
+                        "surface-dim": "#d9dadb",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#a44100",
+                        "on-primary-fixed": "#0f0069",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#454386",
+                        "surface-tint": "#4d44e3",
+                        "outline": "#777587",
+                        "on-tertiary-container": "#ffd2be",
+                        "tertiary-fixed": "#ffdbcc",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "primary-fixed": "#e2dfff",
+                        "on-secondary-fixed": "#140f54",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed": "#e2dfff",
+                        "background": "#f8f9fa",
+                        "primary": "#3525cd",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c7c4d8",
+                        "on-surface": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed": "#351000",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "secondary": "#58579b",
+                        "on-error": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-primary-container": "#dad7ff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "on-secondary-fixed-variant": "#413f82",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-container": "#b6b4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-effect { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="text-on-background bg-background">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_8px_24px_rgba(70,69,85,0.06)]">
+<nav class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-indigo-700 dark:text-indigo-400 font-headline">
+                The Academic Atelier
+            </div>
+<div class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+<a class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 font-bold pb-1" href="#">Discover</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-all duration-300" href="#">Schedule</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-all duration-300" href="#">Clubs</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-indigo-500 transition-all duration-300" href="#">Venues</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm transition-all hover:scale-[1.02] active:scale-98">
+                    Get Tickets
+                </button>
+<div class="flex items-center text-on-surface-variant cursor-pointer hover:bg-slate-100/50 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-28 pb-12 px-6 lg:px-12 max-w-screen-2xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-16">
+<div class="relative overflow-hidden rounded-[2.5rem] bg-indigo-900 aspect-[21/9] md:aspect-[3/1] lg:aspect-[4/1] shadow-2xl flex items-center">
+<img alt="Event Banner" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="Modern high-contrast stage lighting at a university festival with purple and indigo atmospheric smoke and silhouettes of excited students" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjs-4Wnb8zmM5-m-46Bs0gRMKtigEMYzUjoI8fZLR4W31dZaGQ35p5J3b_8H9lymFxi-bDZuPYJuMF4BgJKULCJnyFV3a0JtwP3XnxB9a8gcIb_akLHK-uxebiWROXAM4rV5DQcJQhaG5ocBHuVHzq4Y-8Yi4txsKRqWOAe9Oub83-q4p8WbMBso4bOurFRfLK8riNYW3R38dXcpT7i_sVJr7Dn5w7bQzPYvuNj8oePPVwufOUOs2-33fD0NxzIOzjDrtizMxhog"/>
+<div class="relative z-10 px-12 lg:px-20">
+<span class="inline-block px-4 py-1.5 mb-6 bg-white/10 backdrop-blur-md rounded-full text-white text-[10px] font-bold tracking-[0.15em] font-label">FEATURED SPOTLIGHT</span>
+<h1 class="text-5xl lg:text-7xl font-black text-white font-headline tracking-tighter leading-tight max-w-2xl mb-6">
+                        The Annual Arts &amp; Tech Symposium.
+                    </h1>
+<p class="text-white/80 font-body text-lg max-w-xl mb-8 leading-relaxed">
+                        A weekend of interactive installations, digital poetry, and the future of creative computation.
+                    </p>
+<button class="bg-white text-primary px-8 py-4 rounded-full font-headline font-extrabold text-sm hover:bg-primary-fixed transition-all flex items-center gap-3">
+                        RSVP NOW
+                        <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Main Content Area -->
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-72 flex-shrink-0">
+<div class="sticky top-28 space-y-10">
+<div>
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-on-surface-variant mb-6 font-label">Search</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all text-sm font-body" placeholder="Find an event..." type="text"/>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-on-surface-variant mb-6 font-label">Filter by Date</h3>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between px-4 py-3 bg-white shadow-sm rounded-xl text-primary font-bold text-sm">
+                                All Upcoming
+                                <span class="material-symbols-outlined text-sm" data-icon="done">done</span>
+</button>
+<button class="w-full flex items-center justify-between px-4 py-3 hover:bg-surface-container-low rounded-xl text-slate-600 font-medium text-sm transition-all">
+                                This Weekend
+                            </button>
+<button class="w-full flex items-center justify-between px-4 py-3 hover:bg-surface-container-low rounded-xl text-slate-600 font-medium text-sm transition-all">
+                                Next Week
+                            </button>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-on-surface-variant mb-6 font-label">Categories</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 bg-primary-fixed text-on-primary-fixed-variant rounded-full text-xs font-bold font-label cursor-pointer hover:opacity-80">Workshops</span>
+<span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full text-xs font-bold font-label cursor-pointer hover:bg-slate-200">Music</span>
+<span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full text-xs font-bold font-label cursor-pointer hover:bg-slate-200">Sports</span>
+<span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full text-xs font-bold font-label cursor-pointer hover:bg-slate-200">Tech</span>
+<span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full text-xs font-bold font-label cursor-pointer hover:bg-slate-200">Career</span>
+</div>
+</div>
+<div class="p-6 bg-indigo-50 dark:bg-indigo-900/10 rounded-3xl">
+<h4 class="font-headline font-bold text-indigo-900 dark:text-indigo-400 mb-2">Host an event?</h4>
+<p class="text-sm text-indigo-700/70 mb-4 leading-relaxed">Reach over 5,000 active students and faculty members.</p>
+<button class="w-full py-3 bg-indigo-600 text-white rounded-2xl text-xs font-bold font-headline shadow-lg shadow-indigo-200 dark:shadow-none hover:bg-indigo-700 transition-all">
+                            Submit Proposal
+                        </button>
+</div>
+</div>
+</aside>
+<!-- Events Grid -->
+<div class="flex-1">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-3xl font-black font-headline tracking-tight text-on-background">Live Experiences</h2>
+<div class="flex items-center gap-4 text-xs font-bold text-on-surface-variant">
+<span>Sort by:</span>
+<select class="bg-transparent border-none focus:ring-0 cursor-pointer font-bold text-primary p-0">
+<option>Most Recent</option>
+<option>Popularity</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
+<!-- Event Card 1 -->
+<div class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden transition-all hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(70,69,85,0.1)] flex flex-col h-full">
+<div class="relative aspect-[16/10] overflow-hidden rounded-b-[1.5rem]">
+<img alt="Event Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Dynamic shot of people dancing at a modern electronic music festival with vibrant neon laser beams in a darkened hall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqKKhAX8u3b6GdZQzmAQB3XRNMep-pvKRju_SQ63np1yNeyIH7STMsdD-ps-r6X2pd2Bi9aEKnm1nht_6pnbKF3BOAu74venjCjuXPNWf9jpoM61Sq1JXge7_ESkXKP4MoCm47CEiUsBaAsuMp5O_GjJfF5siwwXEQqosHzivmgDHuJY0dJkcLPLHG1jEQd5ojcPcpVU4iLGmfciHiWfyYYLgPGX5rd41IetsHe3rdP1zbd6mpcNBQADq4Vk_ipZ0svmrIN8uZ5g"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur-md text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider font-label">MUSIC</span>
+<span class="bg-primary/90 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider font-label">FREE</span>
+</div>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="bg-secondary-fixed text-on-secondary-fixed w-12 h-12 rounded-2xl flex flex-col items-center justify-center font-headline">
+<span class="text-xs font-bold leading-none">OCT</span>
+<span class="text-lg font-black leading-none">24</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface-variant">Sound &amp; Vision: Late Night</h4>
+<p class="text-xs text-slate-400 font-medium">Underground Atrium • 8:00 PM</p>
+</div>
+</div>
+<h3 class="text-2xl font-extrabold font-headline tracking-tight mb-4 group-hover:text-primary transition-colors">Digital Echoes: A Night of Ambient Sounds</h3>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-slate-50">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Club Logo" class="w-full h-full object-cover" data-alt="Portrait of a young creative professional smiling in a studio setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlaTqBOxx_qNcnh46jcZr6ZZyn_2-r-uk8BxoPIWS8GnV7FcMTT6SMVNLky5yUOkAuDTpurMgNUG60ci3fSsI2C6NXc5_aSPORpV1wa7PECEb2AevIGTbEVu66K356F3w24ObFmNb603W0jXIqYhxkfKKyM0jvytvb6LjVR99A2pg9-N59zhQj88RgAj6VYWHjzxmcxUyrBROEOjzLTnwnXO0N_HC9StQmv38UMYU-HFnnn8lXXPg4VV0ACrnkXIC8erWBO3L8JA"/>
+</div>
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-label">The Music Conservatory</span>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="favorite">favorite</span>
+</div>
+</div>
+</div>
+<!-- Event Card 2 -->
+<div class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden transition-all hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(70,69,85,0.1)] flex flex-col h-full">
+<div class="relative aspect-[16/10] overflow-hidden rounded-b-[1.5rem]">
+<img alt="Event Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Sleek modern classroom with students engaged in a collaborative workshop using digital screens and design boards" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHOp1wHonxUVwJom3x_RBLyCWwQ_v8c-pMan6Hc1PC60lnmoubDKYIZINhx45YtMhwkUjMvahxEfn5sSGyMlow7WYEzs70vp9OxSpd8JYpPufX3fAvYYwmMJrLNYpTjleUZh2JACPNnD2VSH0Ir4sBqr3iw9gfCI55qyunEsgBTSLRKNmSKQjN2nFFItSkserUMTW395-nxbBpWPLEsB0FSsW0S1c6gZr5DYZizFYZBWYXsMMpmIbxjPSvqZzYHtqHB2G1lCThxg"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur-md text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider font-label">WORKSHOP</span>
+<span class="bg-slate-900/90 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider font-label">$15.00</span>
+</div>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="bg-primary-fixed text-on-primary-fixed w-12 h-12 rounded-2xl flex flex-col items-center justify-center font-headline">
+<span class="text-xs font-bold leading-none">OCT</span>
+<span class="text-lg font-black leading-none">28</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface-variant">Design Thinking Masterclass</h4>
+<p class="text-xs text-slate-400 font-medium">Studio C-4 • 10:00 AM</p>
+</div>
+</div>
+<h3 class="text-2xl font-extrabold font-headline tracking-tight mb-4 group-hover:text-primary transition-colors">Future Interfaces: UX Beyond Screens</h3>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-slate-50">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Club Logo" class="w-full h-full object-cover" data-alt="Professional profile of a modern office space with clean lines and soft architectural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0MpdV2aZFQt5KJSoFeyU-DFeFu0gL3ojLV8Qx9-xlRamss52Ek9tLpUtiB-zWXY5-P1udRVd1l7xvqa4j1CAoQ5BH-ZA5OrAOO6JjbVzhbntBLOW5rbMT1QZD-6xtMBviJtwt7o6LGHbricsG8aiqdlMel6dkjQfpMwRHlLUmxSFkQvtELfexA1onFhx9xemUUa-x2Dl9c8mtA1EJDQPmkbNtcbt_m7THk7ICX1HQ7k4sfj9uTNYE_kuOawEBw53W3zDzpkQfDQ"/>
+</div>
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-label">Interaction Design Lab</span>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="favorite">favorite</span>
+</div>
+</div>
+</div>
+<!-- Event Card 3 -->
+<div class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden transition-all hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(70,69,85,0.1)] flex flex-col h-full">
+<div class="relative aspect-[16/10] overflow-hidden rounded-b-[1.5rem]">
+<img alt="Event Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Professional e-sports arena setup with glowing neon lights, gaming PCs, and focused players in a high-tech environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk7qQe8Pj17Z99lA5zxc_hDpFsWp-Kk5ARbjv1CFhg3K8biMGq_2HWaAXrRrkfvThDIFg8L4R2oWopwAkjMJKKVig1AkP5rPfGIgF63zBknHbLy1CFbkmMcSxMvmfNk6TUsMhiIgr8gikAxs9ek2H2Bi0IwZaikO0uwRqUoMlz6XC2hN8HDmt2F48PpfvrFRhFErtKjh6uKwkwsswc184j0r8Ar2ztEBZ5BUa_OTBHZ7QpRTVoGsdOCGkuY6SF2IPaN_yskBdumQ"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur-md text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider font-label">SPORTS</span>
+<span class="bg-primary/90 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider font-label">FREE</span>
+</div>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="bg-secondary-fixed text-on-secondary-fixed w-12 h-12 rounded-2xl flex flex-col items-center justify-center font-headline">
+<span class="text-xs font-bold leading-none">NOV</span>
+<span class="text-lg font-black leading-none">02</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface-variant">Winter Invitational</h4>
+<p class="text-xs text-slate-400 font-medium">E-Arena • 4:00 PM</p>
+</div>
+</div>
+<h3 class="text-2xl font-extrabold font-headline tracking-tight mb-4 group-hover:text-primary transition-colors">Inter-Campus Valorant Championship</h3>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-slate-50">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Club Logo" class="w-full h-full object-cover" data-alt="Abstract colorful light streaks on a dark background representing high speed and energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxV9fG4FCHZfKbsQpMcGqZ7lODVRkGRx50xZBctkAtqor85lL-SNwYlMRc2-VENrIy4A0f-yRPHCNLMA_VlA37bhQwUHnRPBeaP8muRsrM_TATJmIhcqRl_GqF2AMA8_HztpoPDlcjJUtANAFMB70UnPe_pf6HLgh0uiBCTJAMuCj5z1ooOmP6mk5YE2eNFbT3Fo0z2eVa9kWUpbuMzdzMR6Fxf3m06PaI2der3PEl24tdpkJuMC6BM09KBD8Nm8kmgEPOx_Jhkw"/>
+</div>
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-label">Gaming Society</span>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="favorite">favorite</span>
+</div>
+</div>
+</div>
+<!-- Event Card 4 -->
+<div class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden transition-all hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(70,69,85,0.1)] flex flex-col h-full">
+<div class="relative aspect-[16/10] overflow-hidden rounded-b-[1.5rem]">
+<img alt="Event Poster" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="High-end speaker presenting on a minimalist stage with a large cinematic background projection of data visualizations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXLiIpH7aJGp19sRBdxspNGCRRc4X16K-GrMgpftJSV478nYkeUSoWZ5F5XGfvEiNXGGkTXMKSt7Xao0f2SWN6vV_F6idzuKpF4hwykx0spE_cnd4yLLW9Eb3umWugRkHUMGHn6Qe1mgHWY1fKiBQDxHxkO73TLP2u1nic3MifETLXJyXrrSI23iNsk0YxuJ8OCUXZagtKZ_6ae2AFZYgy_Qb_Ryoql9maSsT140r2r-nshRZk37HNzqO_0aFHE-feKHN_lMAtZQ"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur-md text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider font-label">TECH</span>
+<span class="bg-slate-900/90 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider font-label">$5.00</span>
+</div>
+</div>
+<div class="p-8 flex-1 flex flex-col">
+<div class="flex items-center gap-3 mb-4">
+<div class="bg-primary-fixed text-on-primary-fixed w-12 h-12 rounded-2xl flex flex-col items-center justify-center font-headline">
+<span class="text-xs font-bold leading-none">NOV</span>
+<span class="text-lg font-black leading-none">05</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface-variant">AI For All Summit</h4>
+<p class="text-xs text-slate-400 font-medium">Main Hall • 9:00 AM</p>
+</div>
+</div>
+<h3 class="text-2xl font-extrabold font-headline tracking-tight mb-4 group-hover:text-primary transition-colors">Generative Minds: Ethical AI Exploration</h3>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-slate-50">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Club Logo" class="w-full h-full object-cover" data-alt="Macro photo of circuit board components with soft teal and blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXhjzHc28Ky33qzAtftjU9dCAZIMV9J07qvair833j6Lz4pVkTsXND6u6TAe7GRtm4Q-9bkR9ViEt5RxyYtnOpF6t0WeZ7RWfzdBui5jyrxB0FZMeCbPIZGiMOXMBl4LohNFGBFa0QiW--4CIgBAZcBLMdAnIn0qmks3_CZqMegQYGm0lsYC7AdFqYVzHbV7fdTMc1QvGEuupjKuM7v4PMrUr034hquLZU7eZ0xIo11zLAqg6y9_XgK-2P7285rknadnH7k6a7Dg"/>
+</div>
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-label">CS Collective</span>
+</div>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors" data-icon="favorite">favorite</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<div class="mt-12 flex justify-center">
+<button class="px-10 py-4 bg-surface-container-high text-on-surface-variant rounded-full font-headline font-extrabold text-sm hover:bg-slate-200 transition-all">
+                        Load More Events
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-10 right-10 z-50 bg-gradient-to-br from-primary to-primary-container text-white p-5 rounded-3xl shadow-2xl shadow-primary/40 hover:scale-110 active:scale-95 transition-all flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span class="font-headline font-bold text-sm pr-2">Submit Event</span>
+</button>
+<!-- Footer Space -->
+<footer class="bg-surface-container-low mt-20 pt-20 pb-12">
+<div class="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-2">
+<div class="text-2xl font-black tracking-tighter text-indigo-700 font-headline mb-6">The Academic Atelier</div>
+<p class="text-on-surface-variant max-w-sm mb-8 leading-relaxed font-body">A curated platform for university experiences, bringing together culture, technology, and student community in a single digital space.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-400 hover:text-primary cursor-pointer transition-all shadow-sm"><span class="material-symbols-outlined" data-icon="share">share</span></div>
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-slate-400 hover:text-primary cursor-pointer transition-all shadow-sm"><span class="material-symbols-outlined" data-icon="mail">mail</span></div>
+</div>
+</div>
+<div>
+<h4 class="font-headline font-black text-xs uppercase tracking-widest text-on-surface mb-8">Navigation</h4>
+<ul class="space-y-4 font-body text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">About the Platform</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Browse Venues</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Club Directory</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Use</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-black text-xs uppercase tracking-widest text-on-surface mb-8">Support</h4>
+<ul class="space-y-4 font-body text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Ticketing Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Host Guidelines</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Report Issue</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto px-8 mt-16 pt-8 border-t border-slate-200 text-xs font-medium text-slate-400 flex justify-between items-center">
+<span>© 2024 The Academic Atelier. All rights reserved.</span>
+<div class="flex gap-6">
+<span>Privacy Policy</span>
+<span>Cookie Settings</span>
+</div>
+</div>
+</footer>
+</body></html>

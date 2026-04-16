@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post-Event Report | The Academic Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#464555",
+                        "on-background": "#191c1d",
+                        "surface-container": "#edeeef",
+                        "tertiary": "#7e3000",
+                        "surface-dim": "#d9dadb",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#a44100",
+                        "on-primary-fixed": "#0f0069",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#454386",
+                        "surface-tint": "#4d44e3",
+                        "outline": "#777587",
+                        "on-tertiary-container": "#ffd2be",
+                        "tertiary-fixed": "#ffdbcc",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "primary-fixed": "#e2dfff",
+                        "on-secondary-fixed": "#140f54",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed": "#e2dfff",
+                        "background": "#f8f9fa",
+                        "primary": "#3525cd",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c7c4d8",
+                        "on-surface": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed": "#351000",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb695",
+                        "secondary": "#58579b",
+                        "on-error": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-primary-container": "#dad7ff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-tertiary-fixed-variant": "#7b2f00",
+                        "on-secondary-fixed-variant": "#413f82",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-container": "#b6b4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-header {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen">
+<!-- Navigation Drawer (SideNavBar) -->
+<aside class="h-full w-72 fixed left-0 top-0 bg-slate-50 dark:bg-slate-950 flex flex-col p-6 border-r border-slate-100 dark:border-slate-800 z-40">
+<div class="text-xl font-bold text-slate-900 dark:text-white mb-8 tracking-tighter">Admin Console</div>
+<div class="flex items-center gap-4 mb-10 p-2">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Professional headshot of a student administrator in a studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCruRTA6XAKIMVnhGUPrpN8NldG1j56ZeV-Yr3xYAArv7p4mLWsliMEzV55_zF--2uzkdsqmXF4plSHEPtd79SDWhzgg78pR2umTyZwnP4XU4Cvfa2e8EqQZX0-PIxycuRx2hahsWYvZXryzTaGLqM37mtEgnK_HtBfmLhbOdJ-ejLKpm_gF2JYXCSGTZzT9XGVO6Ugc-ORbPIFpeqw8QMpJc8ZuwxtZ6u2zOrfYQKU5-vg6-8SejE9CzwdvlnfUCQZjjOsKnCEow"/>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-sm text-on-surface">Club Administrator</span>
+<span class="text-xs text-on-surface-variant">Student Activities Board</span>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-semibold">Dashboard</span>
+</a>
+<a class="bg-white dark:bg-slate-900 text-indigo-600 shadow-sm rounded-xl py-3 px-4 flex items-center gap-3 translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-semibold">Events</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-semibold">Registrations</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-semibold">Analytics</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-semibold">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-100">
+<button class="w-full py-4 px-6 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-headline font-bold text-sm shadow-lg shadow-indigo-200 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                Create New Event
+            </button>
+<a class="mt-4 text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 hover:bg-indigo-50 transition-all rounded-xl text-sm" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span>Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 min-h-screen p-12">
+<header class="mb-12 max-w-4xl">
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mb-4">
+<span class="material-symbols-outlined text-sm">assignment_turned_in</span>
+                Post-Event Closure
+            </div>
+<h1 class="text-5xl font-headline font-extrabold tracking-tighter text-on-surface mb-4">
+                The Annual Tech Symposium <span class="text-on-surface-variant/30">2024</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                Complete the reporting process to finalize your club's event status and unlock reimbursement funds.
+            </p>
+</header>
+<!-- Reporting Grid -->
+<div class="grid grid-cols-12 gap-8 max-w-6xl">
+<!-- Left Column: Primary Reporting Form -->
+<div class="col-span-8 space-y-8">
+<!-- Section: Event Summary -->
+<section class="bg-surface-container-lowest p-10 rounded-xl shadow-[0_8px_24px_rgba(70,69,85,0.04)]">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed-variant">description</span>
+</div>
+<div>
+<h2 class="text-xl font-headline font-bold">Event Summary</h2>
+<p class="text-sm text-on-surface-variant">Narrative overview of goals and outcomes</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface uppercase tracking-wider px-1">Detailed Reflection</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all text-on-surface placeholder:text-on-surface-variant/40" placeholder="Describe the highlights, challenges, and overall impact of the symposium..." rows="6"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface uppercase tracking-wider px-1 text-on-surface-variant">Attendance Count</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 pl-12 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" placeholder="0" type="number"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50">group</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface uppercase tracking-wider px-1 text-on-surface-variant">Rating (1-10)</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 pl-12 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" placeholder="0" type="number"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50">star</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Document Upload (Bento Style) -->
+<section class="grid grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_24px_rgba(70,69,85,0.04)] col-span-2">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant">attachment</span>
+</div>
+<h3 class="text-lg font-headline font-bold">Evidence &amp; Receipts</h3>
+</div>
+<span class="text-xs font-bold text-primary px-3 py-1 bg-primary-fixed rounded-full">MAX 50MB</span>
+</div>
+<div class="border-2 border-dashed border-outline-variant rounded-2xl p-12 flex flex-col items-center justify-center text-center group hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant">cloud_upload</span>
+</div>
+<p class="font-bold text-on-surface">Drag and drop documents here</p>
+<p class="text-sm text-on-surface-variant mt-1">Upload high-res photos, PDF receipts, or scanned invoices</p>
+<button class="mt-6 px-6 py-2 bg-on-surface text-surface rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-90">Browse Files</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Budget & Actions -->
+<div class="col-span-4 space-y-8">
+<!-- Financial Summary Card -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_24px_rgba(70,69,85,0.04)]">
+<h3 class="text-lg font-headline font-bold mb-6">Budget Finalization</h3>
+<div class="space-y-6">
+<div class="p-4 bg-surface-container-low rounded-xl">
+<span class="text-xs font-bold text-on-surface-variant uppercase block mb-1">Approved Budget</span>
+<span class="text-2xl font-headline font-extrabold">$2,450.00</span>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col gap-1">
+<label class="text-xs font-bold text-on-surface px-1">Actual Spend</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-on-surface-variant">$</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 pl-10 font-bold focus:ring-2 focus:ring-primary/20" type="text" value="2,120.45"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-xs font-bold text-on-surface px-1">Variance</label>
+<div class="flex items-center justify-between p-4 bg-secondary-container/20 rounded-xl">
+<span class="text-sm font-semibold text-on-secondary-container">Under Budget</span>
+<span class="font-headline font-bold text-on-secondary-container">+$329.55</span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-surface-container">
+<div class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-green-600 text-lg">verified_user</span>
+<span>Compliant with Tier 1 Funding</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Help/Guidelines Card -->
+<div class="bg-on-background p-8 rounded-xl text-surface relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline font-bold mb-2">Need help reporting?</h4>
+<p class="text-sm text-surface/70 mb-4 leading-relaxed">Check our handbook for specific documentation requirements for catering and external vendors.</p>
+<a class="text-primary-fixed-dim text-xs font-bold uppercase tracking-wider flex items-center gap-2 hover:gap-3 transition-all" href="#">
+                            View Handbook <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">help</span>
+</div>
+</div>
+<!-- Primary Sticky Actions -->
+<div class="sticky top-8 space-y-4">
+<button class="w-full py-5 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-headline font-bold text-lg shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                        Submit Report
+                        <span class="material-symbols-outlined">send</span>
+</button>
+<button class="w-full py-4 rounded-full bg-surface-container-high text-on-surface font-headline font-bold text-sm hover:bg-surface-container-highest transition-all">
+                        Save as Draft
+                    </button>
+<p class="text-[10px] text-center text-on-surface-variant uppercase tracking-tighter px-4">
+                        By submitting, you certify that all information provided is accurate and all receipts are valid for auditing.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Secondary Section: Visual Proof Scroller -->
+<section class="mt-20">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-3xl font-headline font-extrabold tracking-tight">Event Gallery Preview</h2>
+<p class="text-on-surface-variant">Photos uploaded for social media and archive purposes</p>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-1">
+                    Manage Gallery <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-8 no-scrollbar -mx-12 px-12">
+<div class="min-w-[400px] h-64 rounded-xl overflow-hidden relative group cursor-pointer shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Keynote speaker presenting on stage at a modern technology symposium with large digital screens in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMKZ9WVd4zYgXUUEZxlxhZEf8exg2WP9lxqOdTuljU92J2eCv4YWW4dxyulVuYNmD2fPAS3VR5K1gqTdNurGOauLOQfg3WyE_UbQ6GkuufdlUcviy47OzTqyTGxxMeprluL-jRW3gXiL1h6-JCQCxzQ2j82hGRfx6YAmzrtLllJJS_nQuREOyF4POJ-d1yOHfeAINGvTmtY4pCld5Lo1ce1xUcmtgeyF2qSQ7piYtgptWDl5t94fxcRmLgOP8nn0EdOXUSZ26e2w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<span class="text-[10px] font-bold uppercase tracking-widest bg-primary px-2 py-0.5 rounded">Keynote</span>
+<p class="font-bold mt-1">Main Auditorium Sessions</p>
+</div>
+</div>
+<div class="min-w-[300px] h-64 rounded-xl overflow-hidden relative group cursor-pointer shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Groups of students networking and eating lunch in a bright campus atrium during an event break" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkn2lAwzBfvk1m6mc1Y_oEND8VUQ2oWLmqQg4z-Ucai8RtOCH_p_EGla1zAvm_akEN86KGzG-QS3M1wnL3JcI2uEFG0lSpg3XUaPgMTSaUlXm4ueDYD2MhTHbLKjct7SG8hKA5BMFiDogkAauvY5kPWwsJ7Qe6RlSrptGiIMvlguePqjCHjx-uBo4kCqmgqpBHT8gwrNk8OJcAhZMI622mTGEzVwYfISYr-mI0c8gBZLWFSBFcP0b7mMxv-PfaFW0XzyWwM-sTYg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<span class="text-[10px] font-bold uppercase tracking-widest bg-secondary px-2 py-0.5 rounded">Networking</span>
+<p class="font-bold mt-1">Networking Hour</p>
+</div>
+</div>
+<div class="min-w-[300px] h-64 rounded-xl overflow-hidden relative group cursor-pointer shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close-up of a student workshop with laptops, post-it notes and technical equipment on a table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWZkQqMk2TJql5ONoPyOtGd4BETERf2gWcXcYfcgQN9HrEFnvvEtrfBa8NxoWmZB8NGlka_tfAZtakiIScHt8i8ecffFtEzZjt3Q7ZudicW0Ei9XAG6aZmkZHZt8RXKAtfg4IBQusHYS0eThabotgTLVNgFZWKryC-NVbrs-d6WzyKsDhQJLA3S8TToFRJlWTP_P3L9nmDhHdV-X811807i4sZW0mYFJViziSfUccd8tfTcQqm6XhJ4JWrM_GsB_xOvdE6VcXhjg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<span class="text-[10px] font-bold uppercase tracking-widest bg-tertiary px-2 py-0.5 rounded">Workshop</span>
+<p class="font-bold mt-1">Hands-on Lab</p>
+</div>
+</div>
+<div class="min-w-[300px] h-64 rounded-xl overflow-hidden relative group cursor-pointer shadow-lg">
+<div class="w-full h-full bg-surface-container-high flex flex-col items-center justify-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-4xl">add_a_photo</span>
+<span class="font-bold">Add more</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual FAB (Hidden on report page per instructions, but placeholder logic if it were Home) -->
+<!-- Suppressed based on "focused journey" rule -->
+</body></html>
