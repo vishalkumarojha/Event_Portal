@@ -7,6 +7,10 @@ import DashboardLogin from "./pages/DashboardLogin";
 import DashboardOverview from "./pages/DashboardOverview";
 import ManageEvents from "./pages/ManageEvents";
 import CreateEvent from "./pages/CreateEvent";
+import Registrations from "./pages/Registrations";
+import Team from "./pages/Team";
+import Analytics from "./pages/Analytics";
+import Settings from "./pages/Settings";
 
 const Navbar = () => {
   const location = useLocation();
@@ -65,10 +69,10 @@ function App() {
           <Route path="/dashboard/events" element={<ManageEvents />} />
           <Route path="/dashboard/create-event" element={<CreateEvent />} />
           {/* Fallback routes for specific dashboard paths used in links */}
-          <Route path="/dashboard/registrations" element={<DashboardOverview />} />
-          <Route path="/dashboard/team" element={<DashboardOverview />} />
-          <Route path="/dashboard/analytics" element={<DashboardOverview />} />
-          <Route path="/dashboard/settings" element={<DashboardOverview />} />
+          <Route path="/dashboard/registrations" element={<Registrations />} />
+          <Route path="/dashboard/team" element={<Team />} />
+          <Route path="/dashboard/analytics" element={<Analytics />} />
+          <Route path="/dashboard/settings" element={<Settings />} />
         </Routes>
       </Layout>
     </Router>
