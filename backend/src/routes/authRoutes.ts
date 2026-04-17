@@ -1,10 +1,13 @@
 import { Router } from 'express';
-import { login, signup, sendInvite } from '../controllers/authController';
+import { login, createClub, createDirector } from '../controllers/authController';
+import { protectRoute, isDSW } from '../middleware/auth';
 
 const router = Router();
 
 router.post('/login', login);
-router.post('/signup', signup);
-router.post('/invite', sendInvite);
+
+// Admin only routes
+router.post('/create-club', protectRoute, isDSW, createClub);
+router.post('/create-director', protectRoute, isDSW, createDirector);
 
 export default router;

@@ -128,16 +128,8 @@ const DashboardLogin: React.FC = () => {
 
                 <div className="text-center space-y-4">
                   <p className="text-on-surface-variant text-sm">
-                    Not a curator yet?{" "}
-                    <a className="text-primary font-bold hover:underline transition-all" href="#">Request access</a>
+                    Forgotten your credentials? Please contact the <span className="text-primary font-bold">DSW Office</span>.
                   </p>
-                  <div className="p-4 bg-surface-container-low rounded-xl inline-block w-full">
-                    <p className="text-xs text-on-surface-variant leading-relaxed">
-                      <span className="material-symbols-outlined text-xs align-middle mr-1">info</span>
-                      The Academic Curator operates on an <span className="font-bold">Invite-based signup</span>.
-                      New organizations must provide a valid <span className="text-primary font-medium underline">DSW link</span> for verification.
-                    </p>
-                  </div>
                 </div>
               </div>
             </form>

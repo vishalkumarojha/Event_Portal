@@ -1,7 +1,22 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { subscribeNewsletter } from "../api";
 
 const HomePage: React.FC = () => {
+  const [email, setEmail] = useState("");
+  const [subscribeStatus, setSubscribeStatus] = useState({ type: "", message: "" });
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    try {
+      await subscribeNewsletter(email);
+      setSubscribeStatus({ type: "success", message: "Subscribed! See you Monday." });
+      setEmail("");
+    } catch (err: any) {
+      setSubscribeStatus({ type: "error", message: "Failed to subscribe. Please try again." });
+    }
+  };
   return (
     <div className="bg-surface text-on-surface selection:bg-primary-container selection:text-primary">
       {/* Hero Section: Featured Event */}
@@ -126,18 +141,38 @@ const HomePage: React.FC = () => {
 
         {/* Bento Grid Section */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="md:col-span-2 bg-primary-container rounded-xl p-12 flex flex-col justify-center gap-6 text-white relative overflow-hidden">
+          <div className="md:col-span-2 bg-primary-container rounded-xl p-12 flex flex-col justify-center gap-6 text-on-primary relative overflow-hidden shadow-2xl shadow-primary/20">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
             <div className="relative z-10 space-y-4">
-              <h2 className="text-4xl font-bold tracking-tight">Stay ahead of the curve.</h2>
-              <p className="text-white/80 max-w-md">Subscribe to our weekly curator digest and get personalized event recommendations delivered to your inbox every Monday morning.</p>
-              <div className="flex max-w-sm bg-white rounded-xl p-1 shadow-lg">
-                <input className="flex-1 bg-transparent border-none focus:ring-0 text-on-surface px-4 outline-none" placeholder="Email address" type="email" />
-                <button className="px-6 py-3 bg-primary rounded-lg font-bold hover:bg-primary/90 transition-colors text-white">Subscribe</button>
-              </div>
+              <h2 className="text-4xl font-bold tracking-tight text-white">Stay ahead of the curve.</h2>
+              <p className="text-white/90 max-w-md font-medium">Subscribe to our weekly curator digest and get personalized event recommendations delivered to your inbox every Monday morning.</p>
+              
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row max-w-md gap-3">
+                <div className="flex-1 bg-white rounded-xl p-1 shadow-lg flex items-center">
+                  <input 
+                    className="flex-1 bg-transparent border-none focus:ring-0 text-on-surface px-4 py-2 outline-none font-semibold" 
+                    placeholder="Email address" 
+                    type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <button type="submit" className="px-8 py-3 bg-white text-primary rounded-xl font-bold hover:bg-surface-container-low transition-all active:scale-95 shadow-lg">
+                  Subscribe
+                </button>
+              </form>
+
+              {subscribeStatus.message && (
+                <p className={`text-xs font-bold py-1 px-3 rounded-full inline-block ${
+                  subscribeStatus.type === "success" ? "bg-white/20 text-white" : "bg-error-container text-on-error-container"
+                }`}>
+                  {subscribeStatus.message}
+                </p>
+              )}
             </div>
           </div>
-          <div className="bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between editorial-shadow border-b-8 border-tertiary">
+          <div className="bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between editorial-shadow border-b-8 border-tertiary-container group hover:border-tertiary transition-colors">
             <div className="space-y-4">
               <div className="w-12 h-12 bg-tertiary-fixed rounded-xl flex items-center justify-center text-tertiary">
                 <span className="material-symbols-outlined">auto_awesome</span>

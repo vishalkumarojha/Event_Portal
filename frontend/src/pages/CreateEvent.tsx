@@ -44,7 +44,7 @@ const CreateEvent: React.FC = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-on-surface-variant uppercase tracking-widest ml-1">Category</label>
                   <select className="w-full px-6 py-4 bg-surface-container-low border-none rounded-xl focus:ring-4 focus:ring-primary/10 transition-all font-semibold outline-none appearance-none cursor-pointer">
@@ -53,6 +53,13 @@ const CreateEvent: React.FC = () => {
                     <option>Academic</option>
                     <option>Sports</option>
                     <option>Social</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-on-surface-variant uppercase tracking-widest ml-1">Event Type</label>
+                  <select className="w-full px-6 py-4 bg-surface-container-low border-none rounded-xl focus:ring-4 focus:ring-primary/10 transition-all font-semibold outline-none appearance-none cursor-pointer">
+                    <option>Technical</option>
+                    <option>Non-Technical</option>
                   </select>
                 </div>
                 <div className="space-y-2">

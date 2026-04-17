@@ -11,6 +11,9 @@ import Registrations from "./pages/Registrations";
 import Team from "./pages/Team";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
+import CreateClub from "./pages/CreateClub";
+import ClubList from "./pages/ClubList";
+import ClubDetails from "./pages/ClubDetails";
 
 const Navbar = () => {
   const location = useLocation();
@@ -68,11 +71,13 @@ function App() {
           <Route path="/dashboard" element={<DashboardOverview />} />
           <Route path="/dashboard/events" element={<ManageEvents />} />
           <Route path="/dashboard/create-event" element={<CreateEvent />} />
-          {/* Fallback routes for specific dashboard paths used in links */}
           <Route path="/dashboard/registrations" element={<Registrations />} />
           <Route path="/dashboard/team" element={<Team />} />
+          <Route path="/dashboard/clubs" element={<ClubList />} />
+          <Route path="/dashboard/clubs/:id" element={<ClubDetails />} />
           <Route path="/dashboard/analytics" element={<Analytics />} />
           <Route path="/dashboard/settings" element={<Settings />} />
+          <Route path="/dashboard/create-club" element={<CreateClub />} />
         </Routes>
       </Layout>
     </Router>

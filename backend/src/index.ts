@@ -7,6 +7,8 @@ import authRoutes from './routes/authRoutes';
 import eventRoutes from './routes/eventRoutes';
 import registrationRoutes from './routes/registrationRoutes';
 import reportRoutes from './routes/reportRoutes';
+import newsletterRoutes from './routes/newsletterRoutes';
+import clubRoutes from './routes/clubRoutes';
 
 dotenv.config();
 
@@ -21,6 +23,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/registrations', registrationRoutes);
 app.use('/api/reports', reportRoutes);
+app.use('/api/newsletter', newsletterRoutes);
+app.use('/api/clubs', clubRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });

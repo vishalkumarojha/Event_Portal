@@ -1,7 +1,16 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const navItems = [
+const getCurrentUser = () => {
+  const userStr = localStorage.getItem("user");
+  try {
+    return userStr ? JSON.parse(userStr) : null;
+  } catch (e) {
+    return null;
+  }
+};
+
+const defaultNavItems = [
   { icon: "dashboard", label: "Dashboard", path: "/dashboard" },
   { icon: "event", label: "Events", path: "/dashboard/events" },
   { icon: "group_add", label: "Registrations", path: "/dashboard/registrations" },
@@ -12,6 +21,15 @@ const navItems = [
 
 export const DashboardSidebar: React.FC<{ active?: string }> = ({ active }) => {
   const location = useLocation();
+  const user = getCurrentUser();
+  const isDSW = user?.role === "DSW";
+
+  const navItems = defaultNavItems.map(item => {
+    if (isDSW && item.label === "Team") {
+      return { ...item, label: "Clubs", path: "/dashboard/clubs", icon: "hub" };
+    }
+    return item;
+  });
 
   return (
     <aside className="h-screen w-64 fixed left-0 top-0 bg-surface-container-low flex flex-col p-6 space-y-2 z-40">
@@ -21,7 +39,9 @@ export const DashboardSidebar: React.FC<{ active?: string }> = ({ active }) => {
         </div>
         <div>
           <h2 className="text-lg font-bold text-on-surface tracking-tight">Organizer Portal</h2>
-          <p className="text-[10px] font-semibold text-on-surface-variant uppercase tracking-widest">Club Management</p>
+          <p className="text-[10px] font-semibold text-on-surface-variant uppercase tracking-widest">
+            {isDSW ? "DSW Administration" : "Club Management"}
+          </p>
         </div>
       </div>
 
@@ -68,6 +88,9 @@ export const DashboardSidebar: React.FC<{ active?: string }> = ({ active }) => {
 };
 
 const DashboardOverview: React.FC = () => {
+  const user = getCurrentUser();
+  const isDSW = user?.role === "DSW";
+
   return (
     <div className="bg-surface text-on-surface min-h-screen">
       <DashboardSidebar />
@@ -77,17 +100,19 @@ const DashboardOverview: React.FC = () => {
         <header className="flex justify-between items-end mb-12">
           <div>
             <p className="text-xs font-bold text-primary uppercase tracking-[0.15em] mb-2">Overview</p>
-            <h1 className="text-4xl font-bold text-on-surface tracking-tighter">Club Dashboard</h1>
+            <h1 className="text-4xl font-bold text-on-surface tracking-tighter">
+              {isDSW ? "DSW Dashboard" : "Club Dashboard"}
+            </h1>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="flex -space-x-3">
-              {[
-                "https://lh3.googleusercontent.com/aida-public/AB6AXuDGdHFo5lSfM6piZOuY68KMYJ2hGsBvkfnhOIAqV26VleidwbpOqyrnpkfk7zZGGBX_Ib3sPIMTaiUuyp1LhN4o_O3O7ZbDbx1PmA5OAy6Z-9siGwtu5pQ_-8H79OfDQFsm5LOe9nQXQcXHXmOSPJNAmXulvfuPpsAZJcZt8b1E3C5EbGFvnZ0dVkWiuArTBjwTiWNjGkFtojJwageD2aK8iZqFgllyVopYKOj31lyaww6L9w2R-WRN03bPLsVJqPEI2p9Seof4VA",
-                "https://lh3.googleusercontent.com/aida-public/AB6AXuCf5Vhf7d2CQJjFC18tiugWnjVc6jOkethdJPsVldhuFpbqxYzNMmAKNpasm4yAQVHOKU9-koE3P7eQ9tnDKcHGXJEYC6z3QSkUytO_8kUWOP2WzBor90qeKmFD4WwqFUeASG3zhIoIesXTp5_eU4c5Q2wd61wcecR56hBfXuvIaD1h15qQyAhDhAUgz-s_Fk11d00v246CGwXFPpuDHv0xrsHMPIgCRUmkPI8HTLJbiMBalmOrn3dJiOD8f0ufaeVke2BSMMzOJQ",
-              ].map((src, i) => (
-                <img key={i} alt="Team member" className="w-10 h-10 rounded-full border-2 border-surface" src={src} />
-              ))}
-              <div className="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold">+4</div>
+            <div className="flex items-center gap-3 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm">
+              <div className="w-8 h-8 rounded-full primary-gradient flex items-center justify-center text-white font-bold text-xs">
+                {user?.email?.[0].toUpperCase() || "U"}
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold text-on-surface leading-tight truncate max-w-[120px]">{user?.email}</span>
+                <span className="text-[8px] font-bold text-primary uppercase tracking-widest">{user?.role}</span>
+              </div>
             </div>
           </div>
         </header>

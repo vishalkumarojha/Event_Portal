@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { supabase } from '../config/supabase';
+import { supabase, supabaseAdmin } from '../config/supabase';
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'secret';
@@ -8,47 +8,84 @@ export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   try {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
-    if (error) return res.status(401).json({ error: error.message });
+    if (authError) return res.status(401).json({ error: authError.message });
 
-    const token = jwt.sign({ id: data.user.id, email: data.user.email }, JWT_SECRET, { expiresIn: '1d' });
+    // Fetch user role from metadata or profiles table
+    // In this flow, we'll assume it's in the user_metadata
+    const role = authData.user.user_metadata?.role || 'STUDENT';
 
-    res.json({ user: data.user, token });
+    const token = jwt.sign(
+      { id: authData.user.id, email: authData.user.email, role }, 
+      JWT_SECRET, 
+      { expiresIn: '1d' }
+    );
+
+    res.json({ user: { ...authData.user, role }, token });
   } catch (err: any) {
     res.status(500).json({ error: err.message });
   }
 };
 
-export const signup = async (req: Request, res: Response) => {
-  const { email, password, role } = req.body;
+// Removed public signup as per requirements
+
+export const createClub = async (req: Request, res: Response) => {
+  const { email, password, clubName } = req.body;
 
   try {
-    const { data, error } = await supabase.auth.signUp({
+    // Create the user via Admin API to bypass email confirmation and allow direct role assignment
+    const { data: userData, error: userError } = await supabaseAdmin.auth.admin.createUser({
       email,
       password,
-      options: {
-        data: { role },
-      },
+      email_confirm: true,
+      user_metadata: { role: 'CLUB', clubName }
     });
 
-    if (error) return res.status(400).json({ error: error.message });
+    if (userError) return res.status(400).json({ error: userError.message });
 
-    res.json({ user: data.user });
+    // Sync with public.clubs table
+    const { error: dbError } = await supabaseAdmin.from('clubs').insert({
+      id: userData.user.id,
+      name: clubName,
+      email: email
+    });
+
+    if (dbError) {
+      console.error('Error syncing club to DB:', dbError);
+      // We don't necessarily return error here as Auth succeeded, 
+      // but it should be addressed.
+    }
+
+    res.json({ message: 'Club account created successfully', user: userData.user });
   } catch (err: any) {
     res.status(500).json({ error: err.message });
   }
 };
 
-export const sendInvite = async (req: Request, res: Response) => {
-  // Logic for DSW to send club invite link
-  const { email } = req.body;
-  
-  // Mock invite link generation
-  const inviteLink = `http://localhost:1111/dashboard/signup?invite=${Buffer.from(email).toString('base64')}`;
-  
-  res.json({ message: 'Invite sent', inviteLink });
+// DSW can also create Directors
+export const createDirector = async (req: Request, res: Response) => {
+  const { email, password, role } = req.body; // TECHNICAL_DIRECTOR or NON_TECHNICAL_DIRECTOR
+
+  if (!['TECHNICAL_DIRECTOR', 'NON_TECHNICAL_DIRECTOR'].includes(role)) {
+    return res.status(400).json({ error: 'Invalid director role' });
+  }
+
+  try {
+    const { data: userData, error: userError } = await supabaseAdmin.auth.admin.createUser({
+      email,
+      password,
+      email_confirm: true,
+      user_metadata: { role }
+    });
+
+    if (userError) return res.status(400).json({ error: userError.message });
+
+    res.json({ message: 'Director account created successfully', user: userData.user });
+  } catch (err: any) {
+    res.status(500).json({ error: err.message });
+  }
 };
